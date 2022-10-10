@@ -1,18 +1,22 @@
 //create a grid wrapper variable
 let grid = document.querySelector('.grid-wrapper');
-let gridNum = askNum();
-
-function askNum() {
+let startButton = document.querySelector('.start');
+let promptNum;
+function askForNum() {
     let num = prompt('How many Squares per row would you like? ');
     if(num > 100) {
         prompt('Limit of 100. Please enter a lower number. ');
     }
+    console.log('local n: ', num);
     return num;
 }
 
+console.log('global n: ', askForNum);
 
 //create a function that adds rows of squares
 function addRowOfSquares(squares) { 
+    grid.innerHTML = '';
+    console.log('squares: ',squares);
     let numOfSquares = squares;
     let numOfRows = squares;
     let j = 0;
@@ -36,4 +40,9 @@ function addRowOfSquares(squares) {
         numOfRows--;
     }
 }
-addRowOfSquares(gridNum);
+startButton.addEventListener('click', () => {
+    console.log('start pressed!');
+    let num = askForNum();
+    console.log('num: ',num);
+    addRowOfSquares(num);
+});

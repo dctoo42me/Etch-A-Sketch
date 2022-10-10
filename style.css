@@ -16,6 +16,18 @@ h1 {
     color: white;
     margin-bottom: 15px;
 }
+.start {
+    width: 100px;
+    align-self: center;
+    margin-bottom: 15px;
+    padding: 5px 0;
+    background-color: yellow;
+    border: none;
+    border-radius: 6px;
+}
+.start:hover {
+    background-color: rgb(99, 99, 8);
+}
 .grid-wrapper {
     display: flex;
     flex-direction: column;
