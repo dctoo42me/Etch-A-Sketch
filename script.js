@@ -33,6 +33,10 @@ function addRowOfSquares(squares) {
             square.classList.add('color');
             console.log('mouse left');
             })
+            square.addEventListener('touchmove', () => {
+                square.classList.add('color');
+                console.log('mouse left');
+                })
         }
         grid.appendChild(row);
         console.log('add row to grid', i);
