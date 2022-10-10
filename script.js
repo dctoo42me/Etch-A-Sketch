@@ -46,3 +46,10 @@ startButton.addEventListener('click', () => {
     console.log('num: ',num);
     addRowOfSquares(num);
 });
+
+startButton.addEventListener('touchend', () => {
+    console.log('start pressed!');
+    let num = askForNum();
+    console.log('num: ',num);
+    addRowOfSquares(num);
+});
