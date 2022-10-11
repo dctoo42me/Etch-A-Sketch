@@ -29,10 +29,14 @@ function addRowOfSquares(squares) {
             square.classList.add('square');
             row.appendChild(square);
             console.log('add square to row: ', i);
-            square.addEventListener('mouseleave', () => {
+            square.addEventListener('mouseover', () => {
             square.classList.add('color');
             console.log('mouse left');
             })
+            square.addEventListener('touchstart', () => {
+                square.classList.add('color');
+                console.log('mouse left');
+                })
             square.addEventListener('touchmove', () => {
                 square.classList.add('color');
                 console.log('mouse left');
@@ -51,9 +55,9 @@ startButton.addEventListener('click', () => {
     addRowOfSquares(num);
 });
 
-startButton.addEventListener('touchend', () => {
-    console.log('start pressed!');
-    let num = askForNum();
-    console.log('num: ',num);
-    addRowOfSquares(num);
-});
+// startButton.addEventListener('touchend', () => {
+//     console.log('start pressed!');
+//     let num = askForNum();
+//     console.log('num: ',num);
+//     addRowOfSquares(num);
+// });
