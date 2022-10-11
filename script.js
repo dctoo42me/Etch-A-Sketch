@@ -34,11 +34,12 @@ function addRowOfSquares(squares) {
                 console.log('mouse over');
                 console.log('touch e', e)
             })
-            square.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                console.log('touch start');
-            });
+            // square.addEventListener('touchstart', (e) => {
+            //     e.preventDefault();
+            //     console.log('touch start');
+            // });
             square.addEventListener('touchmove', (e) => {
+                e.preventDefault();
                 if(e.touches) {
                     if(document.elementFromPoint(e.touches[0].pageX, e.touches[0].pageY).classList.value ===  'square') {
                         return document.elementFromPoint(e.touches[0].pageX, e.touches[0].pageY).classList.add('color');
@@ -49,10 +50,10 @@ function addRowOfSquares(squares) {
                 console.log('touch moved');
                 console.log('move',e);
             });
-            square.addEventListener('touchend', () => {
-                square.classList.add('color');
-                console.log('touch end');
-                });
+            // square.addEventListener('touchend', () => {
+            //     square.classList.add('color');
+            //     console.log('touch end');
+            //     });
         }
         grid.appendChild(row);
         console.log('add row to grid', i);
