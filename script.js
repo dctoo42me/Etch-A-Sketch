@@ -29,18 +29,30 @@ function addRowOfSquares(squares) {
             square.classList.add('square');
             row.appendChild(square);
             console.log('add square to row: ', i);
-            square.addEventListener('mouseover', () => {
-            square.classList.add('color');
-            console.log('mouse left');
+            square.addEventListener('mouseover', (e) => {
+                square.classList.add('color');
+                console.log('mouse over');
+                console.log('touch e', e)
             })
-            square.addEventListener('touchstart', () => {
+            square.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                console.log('touch start');
+            });
+            square.addEventListener('touchmove', (e) => {
+                if(e.touches) {
+                    if(document.elementFromPoint(e.touches[0].pageX, e.touches[0].pageY).classList.value ===  'square') {
+                        return document.elementFromPoint(e.touches[0].pageX, e.touches[0].pageY).classList.add('color');
+                    };
+                }
+                console.log('touched target',e.target) ;
                 square.classList.add('color');
-                console.log('mouse left');
-                })
-            square.addEventListener('touchmove', () => {
+                console.log('touch moved');
+                console.log('move',e);
+            });
+            square.addEventListener('touchend', () => {
                 square.classList.add('color');
-                console.log('mouse left');
-                })
+                console.log('touch end');
+                });
         }
         grid.appendChild(row);
         console.log('add row to grid', i);
@@ -55,9 +67,3 @@ startButton.addEventListener('click', () => {
     addRowOfSquares(num);
 });
 
-// startButton.addEventListener('touchend', () => {
-//     console.log('start pressed!');
-//     let num = askForNum();
-//     console.log('num: ',num);
-//     addRowOfSquares(num);
-// });
